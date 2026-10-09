@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Acme Admin (fixture)</title>
+    <style>
+      body { font-family: system-ui, sans-serif; margin: 24px; }
+      form { display: grid; gap: 8px; max-width: 320px; margin-bottom: 24px; }
+      table { border-collapse: collapse; }
+      td, th { padding: 6px 10px; border: 1px solid #ddd; }
+      .css-1x2y3z4 { background: #4f46e5; color: #fff; }
+    </style>
+  </head>
+  <body>
+    <header><nav aria-label="Primary"><a href="/app.html">Home</a> · <a href="/second.html" id="next-page">Second page</a></nav></header>
+    <main>
+      <form id="login-form" aria-label="Sign in" onsubmit="event.preventDefault()">
+        <h1>Sign in</h1>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" />
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" value="hunter2" />
+        <label><input type="checkbox" name="remember" value="yes" /> Remember me</label>
+        <button id="login" type="submit" class="btn btn-primary">Log in</button>
+        <a href="/forgot" class="link">Forgot your password?</a>
+      </form>
+
+      <h2>Team members</h2>
+      <table>
+        <thead><tr><th>Name</th><th>Role</th><th>Actions</th></tr></thead>
+        <tbody>
+          <tr><td>Alice Johnson</td><td>Admin</td><td><button class="btn danger">Delete</button></td></tr>
+          <tr><td>Bob Smith</td><td>Editor</td><td><button class="btn danger">Delete</button></td></tr>
+          <tr><td>Carol White</td><td>Viewer</td><td><button class="btn danger">Delete</button></td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        <button data-testid="checkout-button" class="css-1x2y3z4">Checkout</button>
+        <button aria-label="Don't stop" id="1st-item">Pause</button>
+        <a href="/faq">It's "complicated"</a>
+      </p>
+      <p>Page clicks: <output id="click-count">0</output></p>
+    </main>
+    <script>
+      let clicks = 0;
+      document.addEventListener('click', () => {
+        clicks += 1;
+        document.getElementById('click-count').textContent = String(clicks);
+      });
+    </script>
+  </body>
+</html>

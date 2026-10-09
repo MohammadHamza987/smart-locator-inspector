@@ -1,0 +1,13 @@
+node_modules/
+dist/
+dist-e2e/
+release/
+test-results/
+playwright-report/
+store-assets/
+coverage/
+*.log
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea/

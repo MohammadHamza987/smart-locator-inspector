@@ -1,0 +1,39 @@
+{
+  "name": "smart-locator-inspector",
+  "version": "1.0.0",
+  "description": "Chrome extension that inspects page elements and generates validated, ranked Playwright and Selenium Java locators.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.18"
+  },
+  "scripts": {
+    "dev": "node scripts/build.mjs --watch",
+    "build": "node scripts/build.mjs && node scripts/validate-dist.mjs dist",
+    "build:e2e": "node scripts/build.mjs --e2e && node scripts/validate-dist.mjs dist-e2e",
+    "validate": "node scripts/validate-dist.mjs dist",
+    "package": "npm run build && node scripts/package.mjs",
+    "icons": "node scripts/generate-icons.mjs",
+    "screenshots": "npm run build:e2e && node scripts/store-screenshots.mjs",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "npm run build:e2e && playwright test",
+    "check": "npm run lint && npm run test && npm run build"
+  },
+  "dependencies": {
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@playwright/test": "^1.49.1",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "eslint": "^9.17.0",
+    "eslint-plugin-vue": "^9.32.0",
+    "globals": "^15.14.0",
+    "jsdom": "^25.0.1",
+    "vite": "^6.0.7",
+    "vitest": "^2.1.8"
+  }
+}
